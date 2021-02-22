@@ -1,0 +1,3 @@
+[submodule "example/example-lib/libnunchuk"]
+	path = example/example-lib/libnunchuk
+	url = https://github.com/nunchuk-io/libnunchuk

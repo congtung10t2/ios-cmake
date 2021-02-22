@@ -1,6 +1,9 @@
 cmake_minimum_required (VERSION 3.2)
 project (example-ios C CXX)
-enable_testing()
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(IOS)
 
 MESSAGE( STATUS "CMAKE_CXX_FLAGS: " ${CMAKE_CXX_FLAGS} )
 
@@ -65,10 +68,13 @@ endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 
 # Link the library with the executable
 #target_link_libraries(helloworld example)
+add_subdirectory(libnunchuk)
+target_link_libraries(example PUBLIC nunchuk)
 
 # Debug symbols set in XCode project
 set_xcode_property(example GCC_GENERATE_DEBUGGING_SYMBOLS YES "All")
 
 # Installation
 install (TARGETS example DESTINATION lib)
+install (TARGETS nunchuk DESTINATION lib)
 install (FILES ${HEADERS} DESTINATION include)

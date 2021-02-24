@@ -7,8 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "HelloWorldIOS.h"
-
+#import <example/HelloWorldIOS.h>
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *helloWorldLabel;
 @end
@@ -17,9 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    HelloWorldIOS * hello = [[HelloWorldIOS new] init];
+    self.helloWorldLabel.text = [hello getHelloWorld];
     // Do any additional setup after loading the view, typically from a nib.
-    HelloWorldIOS *helloWorld = [HelloWorldIOS new];
-    self.helloWorldLabel.text = [helloWorld getHelloWorld];
+   // HelloWorldIOS *helloWorld = [HelloWorldIOS new];
+   // self.helloWorldLabel.text = [helloWorld getHelloWorld];
 }
 
 

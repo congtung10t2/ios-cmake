@@ -1,8 +1,16 @@
 cmake_minimum_required (VERSION 3.2)
-project (example-ios C CXX)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+
+
+
+set(DEVELOPMENT_PROJECT_NAME "example-ios")                     # <== Set to your project name, e.g. 
+
+set(ENABLE_BITCODE "-fembed-bitcode")
+project (${DEVELOPMENT_PROJECT_NAME})
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fembed-bitcode")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fembed-bitcode")
+set(CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET "13.0")
+
 set(IOS)
 
 MESSAGE( STATUS "CMAKE_CXX_FLAGS: " ${CMAKE_CXX_FLAGS} )
@@ -40,13 +48,13 @@ check_type_size(time_t SIZEOF_TIME_T)
 
 # Source files
 set(SOURCES
-  HelloWorld.cpp
+
   HelloWorldIOS.mm
 )
 
 # Headers
 set(HEADERS
-  HelloWorld.hpp
+
   HelloWorldIOS.h
 )
 
@@ -71,10 +79,38 @@ endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 add_subdirectory(libnunchuk)
 target_link_libraries(example PUBLIC nunchuk)
 
-# Debug symbols set in XCode project
-set_xcode_property(example GCC_GENERATE_DEBUGGING_SYMBOLS YES "All")
+set(CMAKE_SHARED_LINKER_FLAGS "-Wall")
 
-# Installation
-install (TARGETS example DESTINATION lib)
-install (TARGETS nunchuk DESTINATION lib)
-install (FILES ${HEADERS} DESTINATION include)
+set_target_properties(example PROPERTIES
+    FRAMEWORK TRUE
+    FRAMEWORK_VERSION A
+    MACOSX_FRAMEWORK_IDENTIFIER ${FRAMEWORK_BUNDLE_IDENTIFIER}
+    MACOSX_FRAMEWORK_INFO_PLIST ${CMAKE_CURRENT_LIST_DIR}/framework.plist.in
+    # "current version" in semantic format in Mach-O binary file
+    VERSION 1.0.0
+    # "compatibility version" in semantic format in Mach-O binary file
+    SOVERSION 1.0.0
+    PUBLIC_HEADER "${example-ios_SOURCE_DIR}/HelloWorldIOS.h"
+    XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET ${DEPLOYMENT_TARGET}
+    XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY ${CODE_SIGN_IDENTITY}
+    XCODE_ATTRIBUTE_DEVELOPMENT_TEAM ${DEVELOPMENT_TEAM_ID}
+    XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY ${DEVICE_FAMILY}
+    XCODE_ATTRIBUTE_SKIP_INSTALL "YES"
+)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  target_compile_options(example
+    PRIVATE
+    -stdlib=libc++
+    -Wno-shorten-64-to-32
+    -Wall
+    -Wno-reorder
+    -Wreturn-type
+    -Wsign-compare
+    -Wignored-qualifiers
+    -Wtype-limits
+    -Wmissing-field-initializers
+    -Wc++17-extensions
+    ${ENABLE_BITCODE})
+endif()
+

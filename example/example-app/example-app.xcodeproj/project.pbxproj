@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E0C41E225E4A51E0063F8F9 /* example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0C41DF25E4A4DB0063F8F9 /* example.framework */; };
+		2E0C41E325E4A51E0063F8F9 /* example.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0C41DF25E4A4DB0063F8F9 /* example.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3B8750B11E448D83006669EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8750B01E448D83006669EE /* main.m */; };
 		3B8750B41E448D83006669EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8750B31E448D83006669EE /* AppDelegate.m */; };
 		3B8750B71E448D83006669EE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8750B61E448D83006669EE /* ViewController.m */; };
@@ -14,10 +16,24 @@
 		3B8750BC1E448D83006669EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B8750BB1E448D83006669EE /* Assets.xcassets */; };
 		3B8750BF1E448D83006669EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8750BD1E448D83006669EE /* LaunchScreen.storyboard */; };
 		3B8750C91E448EAE006669EE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8750C81E448EAE006669EE /* libc++.tbd */; };
-		3B8750CB1E448F99006669EE /* libexample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8750CA1E448F99006669EE /* libexample.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2E0C41E425E4A51E0063F8F9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2E0C41E325E4A51E0063F8F9 /* example.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2E0C41DF25E4A4DB0063F8F9 /* example.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = example.framework; sourceTree = "<group>"; };
 		3B8750AC1E448D83006669EE /* example-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "example-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B8750B01E448D83006669EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3B8750B21E448D83006669EE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,7 +45,6 @@
 		3B8750BE1E448D83006669EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B8750C01E448D83006669EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B8750C81E448EAE006669EE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		3B8750CA1E448F99006669EE /* libexample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libexample.a; path = "example-lib/lib/libexample.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,8 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B8750CB1E448F99006669EE /* libexample.a in Frameworks */,
 				3B8750C91E448EAE006669EE /* libc++.tbd in Frameworks */,
+				2E0C41E225E4A51E0063F8F9 /* example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +104,7 @@
 		3B8750C71E448EAE006669EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B8750CA1E448F99006669EE /* libexample.a */,
+				2E0C41DF25E4A4DB0063F8F9 /* example.framework */,
 				3B8750C81E448EAE006669EE /* libc++.tbd */,
 			);
 			name = Frameworks;
@@ -105,6 +120,7 @@
 				3B8750A81E448D83006669EE /* Sources */,
 				3B8750A91E448D83006669EE /* Frameworks */,
 				3B8750AA1E448D83006669EE /* Resources */,
+				2E0C41E425E4A51E0063F8F9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +142,7 @@
 				TargetAttributes = {
 					3B8750AB1E448D83006669EE = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = JVXTBU3MZU;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -135,6 +152,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -218,6 +236,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -234,7 +253,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -266,6 +285,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -276,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -289,13 +309,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				DEVELOPMENT_TEAM = JVXTBU3MZU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/example-lib/include";
 				INFOPLIST_FILE = "example-app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/example-lib/lib";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.example-app";
+				OTHER_CFLAGS = (
+					"-fvisibility=hidden",
+					"-fvisibility-inlines-hidden",
+				);
+				OTHER_CODE_SIGN_FLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"'-std=c++17'",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nunchuk.demobitcoinapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -305,12 +339,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/example-lib/include";
 				INFOPLIST_FILE = "example-app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/example-lib/lib";
+				OTHER_CFLAGS = (
+					"-fvisibility=hidden",
+					"-fvisibility-inlines-hidden",
+				);
+				OTHER_CODE_SIGN_FLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"'-std=c++17'",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.example-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

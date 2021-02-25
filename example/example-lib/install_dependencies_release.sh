@@ -21,11 +21,12 @@ copyall_depends()
 
 copylib_build() 
 {
-    echo "copying from debug"
-    find ${PWD}/build/libnunchuk/Debug-iphoneos/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
-    find ${PWD}/build/libnunchuk/embedded/Debug-iphoneos/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
-    find ${PWD}/build/libnunchuk/contrib/bc-ur-cpp/Debug-iphoneos/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
-    find ${PWD}/build/libnunchuk/contrib/sqliteios/Debug-iphoneos/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
+    echo "copying from Release"
+    find ${PWD}/build/libnunchuk/Release-iphoneos/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
+    find ${PWD}/build/libnunchuk/embedded/Release-iphoneos/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
+    find ${PWD}/build/libnunchuk/contrib/bc-ur-cpp/Release-iphoneos/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
+    find ${PWD}/build/libnunchuk/contrib/sqliteios/Release-iphoneos/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
+    
 }
 
 if [ -d ${PWD}/depends/lib/ ] 

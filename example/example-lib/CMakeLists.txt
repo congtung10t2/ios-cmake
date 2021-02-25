@@ -47,13 +47,13 @@ check_type_size(time_t SIZEOF_TIME_T)
 
 # Source files
 set(SOURCES
-
+  HelloWorldCPP.cpp	
   HelloWorldIOS.mm
 )
 
 # Headers
 set(HEADERS
-
+  HelloWorldCPP.h
   HelloWorldIOS.h
 )
 
@@ -72,9 +72,6 @@ endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 
 # Executable
 #add_executable (helloworld main.cpp)
-include_directories(${CMAKE_SOURCE_DIR}/../depends/lib)
-link_directories(${CMAKE_SOURCE_DIR}/../depends/lib)
-
 
 # Link the library with the executable
 #target_link_libraries(helloworld example)

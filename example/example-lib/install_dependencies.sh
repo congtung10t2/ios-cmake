@@ -13,6 +13,10 @@ copyall_depends()
     find ${PWD}/libnunchuk/contrib/bitcoin/src/secp256k1/.libs/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
 
     find ${PWD}/libnunchuk/contrib/bitcoin/src/leveldb/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
+    find ${PWD}/libnunchuk/contrib/bitcoin/src/univalue/.libs/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
+    find ${PWD}/libnunchuk/contrib/bitcoin/src/.libs/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
+
+    find ${PWD}/libnunchuk/contrib/ios_openssl/lib/ -iname \*.a -exec cp {} ${PWD}/depends/lib/ \;
     echo "done copying"
 }
 if [ -d ${PWD}/depends/lib/ ] 

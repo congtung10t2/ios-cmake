@@ -6,7 +6,6 @@ set(DEVELOPMENT_PROJECT_NAME "example-ios")                     # <== Set to you
 
 set(ENABLE_BITCODE "-fembed-bitcode")
 project (${DEVELOPMENT_PROJECT_NAME})
-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fembed-bitcode")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fembed-bitcode")
 set(CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET "13.0")
@@ -73,6 +72,9 @@ endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 
 # Executable
 #add_executable (helloworld main.cpp)
+include_directories(${CMAKE_SOURCE_DIR}/../depends/lib)
+link_directories(${CMAKE_SOURCE_DIR}/../depends/lib)
+
 
 # Link the library with the executable
 #target_link_libraries(helloworld example)
@@ -83,19 +85,14 @@ set(CMAKE_SHARED_LINKER_FLAGS "-Wall")
 
 set_target_properties(example PROPERTIES
     FRAMEWORK TRUE
-    FRAMEWORK_VERSION A
-    MACOSX_FRAMEWORK_IDENTIFIER ${FRAMEWORK_BUNDLE_IDENTIFIER}
-    MACOSX_FRAMEWORK_INFO_PLIST ${CMAKE_CURRENT_LIST_DIR}/framework.plist.in
-    # "current version" in semantic format in Mach-O binary file
-    VERSION 1.0.0
-    # "compatibility version" in semantic format in Mach-O binary file
-    SOVERSION 1.0.0
+    MACOSX_FRAMEWORK_INFO_PLIST "${PROJECT_SOURCE_DIR}/Info.plist"
     PUBLIC_HEADER "${example-ios_SOURCE_DIR}/HelloWorldIOS.h"
-    XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET ${DEPLOYMENT_TARGET}
-    XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY ${CODE_SIGN_IDENTITY}
-    XCODE_ATTRIBUTE_DEVELOPMENT_TEAM ${DEVELOPMENT_TEAM_ID}
-    XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY ${DEVICE_FAMILY}
-    XCODE_ATTRIBUTE_SKIP_INSTALL "YES"
+    XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "com.nunchuk.nunchuksdk"
+    XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION "0.1"
+    XCODE_ATTRIBUTE_DEFINES_MODULE "YES"
+    XCODE_ATTRIBUTE_CLANG_ENABLE_OBJC_ARC "YES"
+    XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++14"
+    XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++"
 )
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")

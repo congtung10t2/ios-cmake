@@ -1,6 +1,6 @@
-#import "HelloWorldIOS.h"
-#import "HelloWorldCPP.h"
-@implementation HelloWorldIOS
+#import "NunchukImp.h"
+#import "NunchukBridge.h"
+@implementation NunchukImp
 NunChukExample * example;
 @synthesize delegate; //synthesise  MyClassDelegate delegate
 - (void) importWallet:(NSBundle*) bundle

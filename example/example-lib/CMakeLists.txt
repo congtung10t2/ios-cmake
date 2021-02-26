@@ -47,14 +47,14 @@ check_type_size(time_t SIZEOF_TIME_T)
 
 # Source files
 set(SOURCES
-  HelloWorldCPP.cpp	
-  HelloWorldIOS.mm
+  NunchukBridge.cpp	
+  NunchukImp.mm
 )
 
 # Headers
 set(HEADERS
-  HelloWorldCPP.h
-  HelloWorldIOS.h
+  NunchukBridge.h
+  NunchukImp.h
 )
 
 # Library
@@ -83,7 +83,7 @@ set(CMAKE_SHARED_LINKER_FLAGS "-Wall")
 set_target_properties(example PROPERTIES
     FRAMEWORK TRUE
     MACOSX_FRAMEWORK_INFO_PLIST "${PROJECT_SOURCE_DIR}/Info.plist"
-    PUBLIC_HEADER "${example-ios_SOURCE_DIR}/HelloWorldIOS.h"
+    PUBLIC_HEADER "${example-ios_SOURCE_DIR}/NunchukImp.h"
     XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "com.nunchuk.nunchuksdk"
     XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION "0.1"
     XCODE_ATTRIBUTE_DEFINES_MODULE "YES"

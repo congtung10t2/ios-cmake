@@ -1,4 +1,4 @@
-#include "HelloWorldCPP.h"
+#include "NunchukBridge.h"
 #include <utils/loguru.hpp>
 
 #include <vector>

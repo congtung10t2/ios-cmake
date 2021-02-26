@@ -1,3 +1,4 @@
+#pragma once 
 #import <Foundation/Foundation.h>
 @protocol WalletDelegate <NSObject>   //define delegate protocol
     - (void) loadedAmounts: (int) balance;  //define delegate method to be implemented within another class
@@ -5,7 +6,7 @@
 @end //end protocol
 
 
-@interface HelloWorldIOS : NSObject
+@interface NunchukImp : NSObject
 @property (nonatomic, weak, nullable) id <WalletDelegate> delegate;
 - (void) importWallet:(NSBundle*_Nonnull) bundle;
 - (void) updateWallet;

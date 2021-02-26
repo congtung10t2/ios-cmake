@@ -1,5 +1,4 @@
-#ifndef hellocpp
-#define hellocpp
+#pragma once 
 #include <nunchuk.h>
 using namespace  nunchuk;
 
@@ -14,4 +13,3 @@ public:
     void importConfig(std::string path);
     void newRemoteSigner(std::string name, std::string xpub, std::string path, std::string print);
 };
-#endif
